@@ -83,8 +83,9 @@ const warriorsGames = [{
     }
   }
 ]
-const ulParent = document.createElement('ul');
- for (let game of warriorsGames){
+const makeChart = (games)=>{
+    const ulParent = document.createElement('ul');
+ for (let game of games){
     let {awayTeam, homeTeam} = game;
     let {team:hTeam, points:hPoints} = homeTeam;
     let {team:aTeam, points:aPoints} = awayTeam;
@@ -102,5 +103,8 @@ const ulParent = document.createElement('ul');
     gameLi.innerHTML = `${teamNames} ${scoreLine}`;
     ulParent.appendChild(gameLi);
  }
+ return ulParent;
+}
+ const chart1 = makeChart(warriorsGames);
 
- document.body.prepend(ulParent);
+ document.body.prepend(chart1);
